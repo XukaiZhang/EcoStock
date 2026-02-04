@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Solicitar Deck | Eco-Stock</title>
+    <link rel="stylesheet" href="style-global.css">
+    <link rel="stylesheet" href="style-deck.css"> <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">ECO<span>STOCK</span></a>
+            <a href="inversores.html" style="color: var(--slate); font-weight: 500;">&larr; Volver a Inversores</a>
+        </div>
+    </nav>
+
+    <div class="deck-container">
+        <div class="deck-grid">
+            <div class="deck-info">
+                <h1>Acceso al Investor Deck Q1 2026</h1>
+                <p class="subtitle">Documentación reservada para Venture Capital, Family Offices e Inversores Acreditados.</p>
+                
+                <div class="info-list">
+                    <div class="info-item">
+                        <span class="check">✓</span>
+                        <div>
+                            <h4>Unit Economics</h4>
+                            <p>Desglose detallado de CAC, LTV y márgenes por categoría de material.</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span class="check">✓</span>
+                        <div>
+                            <h4>Plan de Expansión</h4>
+                            <p>Hoja de ruta para la apertura de los hubs logísticos en Valencia y Lisboa.</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span class="check">✓</span>
+                        <div>
+                            <h4>Cap Table</h4>
+                            <p>Estructura accionarial actual y ronda abierta (Series A - 3M€).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="confidential-badge">
+                    🔒 Documentación Confidencial (NDA Requerido)
+                </div>
+            </div>
+
+            <div class="deck-form-box">
+                <form id="deckForm" onsubmit="submitDeckRequest(event)">
+                    <div class="form-group">
+                        <label>Nombre Completo</label>
+                        <input type="text" placeholder="Ej: Laura M." required>
+                    </div>
+                    <div class="form-group">
+                        <label>Firma de Inversión / Empresa</label>
+                        <input type="text" placeholder="Ej: Blue Horizon Ventures" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Corporativo</label>
+                        <input type="email" placeholder="nombre@fondo.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Tipo de Inversor</label>
+                        <select required>
+                            <option value="">Selecciona una opción...</option>
+                            <option value="vc">Venture Capital</option>
+                            <option value="angel">Business Angel</option>
+                            <option value="family">Family Office</option>
+                            <option value="corporate">Corporate Venture</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" required>
+                            <span>Acepto firmar el NDA digital automáticamente al descargar.</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Solicitar Acceso</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function submitDeckRequest(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            const originalText = btn.innerText;
+            
+            btn.innerText = "Verificando...";
+            btn.disabled = true;
+
+            setTimeout(() => {
+                Swal.fire({
+                    title: 'Solicitud Recibida',
+                    text: 'Hemos enviado un enlace seguro de acceso a tu correo corporativo. Caduca en 24h.',
+                    icon: 'success',
+                    confirmButtonText: 'Volver a Inicio',
+                    confirmButtonColor: '#FF5A1F'
+                }).then(() => {
+                    window.location.href = 'index.html';
+                });
+            }, 1500);
+        }
+    </script>
+</body>
+</html>

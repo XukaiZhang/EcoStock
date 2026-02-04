@@ -1,0 +1,50 @@
+/* Hero Section */
+.hero {
+    height: 80vh;
+    min-height: 600px;
+    background: linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.8)), 
+                url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2000&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Efecto Parallax sutil */
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.hero-content { max-width: 700px; }
+.hero h1 { 
+    font-size: 4rem; 
+    line-height: 1.1; 
+    margin-bottom: 24px; 
+    font-weight: 800; 
+}
+.hero p { 
+    font-size: 1.25rem; 
+    color: #E2E8F0; 
+    margin-bottom: 40px; 
+    max-width: 500px; 
+}
+
+/* Logos de confianza */
+.trusted-by { padding: 40px 0; background: white; border-bottom: 1px solid #eee; }
+.trusted-by p { text-align: center; color: var(--slate); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; }
+.logos-grid { 
+    display: flex; justify-content: center; gap: 60px; opacity: 0.5; filter: grayscale(100%);
+}
+/* Simulación de logos con texto */
+.partner-logo { font-weight: 800; font-size: 1.5rem; color: #94a3b8; }
+
+/* Estilos falsos para logos de empresas */
+.logos-grid { 
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 60px; align-items: center;
+    opacity: 0.6; filter: grayscale(100%); margin-top: 20px;
+}
+.partner-logo { font-size: 1.8rem; color: #64748B; transition: 0.3s; cursor: default; }
+.partner-logo:hover { color: var(--primary); opacity: 1; }
+
+.font-heavy { font-weight: 900; letter-spacing: -1px; font-family: 'Arial Black', sans-serif; }
+.font-serif { font-family: 'Times New Roman', serif; font-weight: bold; letter-spacing: 2px; }
+.font-modern { font-weight: 300; letter-spacing: 4px; text-transform: uppercase; }
+.font-tech { font-family: 'Courier New', monospace; font-weight: 800; letter-spacing: -2px; }
+.font-bold { font-weight: 800; font-style: italic; }

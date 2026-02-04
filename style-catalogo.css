@@ -1,0 +1,163 @@
+.catalog-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 40px;
+    padding: 60px 0;
+}
+
+/* Sidebar de Filtros */
+.filters h3 { font-size: 1.1rem; margin-bottom: 20px; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px; }
+.filter-group { margin-bottom: 30px; }
+.filter-option { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; color: var(--slate); font-size: 0.9rem; cursor: pointer; }
+.filter-option input { accent-color: var(--primary); }
+
+/* Grid de productos */
+.products-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+.products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 30px; }
+
+/* Tarjeta de Producto */
+.product-card {
+    background: white;
+    border: 1px solid #f1f5f9;
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+}
+.product-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+
+.card-img-wrapper { height: 200px; overflow: hidden; position: relative; }
+.card-img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+.product-card:hover .card-img { transform: scale(1.05); }
+
+.badge-discount {
+    position: absolute; top: 10px; left: 10px;
+    background: var(--dark); color: white;
+    padding: 4px 10px; font-size: 0.75rem; font-weight: 700; border-radius: 4px;
+}
+
+.card-content { padding: 20px; }
+.category { font-size: 0.75rem; color: var(--slate); text-transform: uppercase; letter-spacing: 0.5px; }
+.card-title { font-size: 1.1rem; margin: 5px 0 15px; font-weight: 600; }
+.card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 15px; border-top: 1px solid #f8fafc; padding-top: 15px; }
+.price { font-size: 1.25rem; font-weight: 800; color: var(--dark); }
+.btn-icon { 
+    width: 35px; height: 35px; border-radius: 50%; background: #f1f5f9; 
+    border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.2s; 
+}
+.btn-icon:hover { background: var(--primary); color: white; }
+
+/* Estilos del Modal (Pop-up) */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 23, 42, 0.8); /* Fondo oscuro backdrop */
+    backdrop-filter: blur(5px);
+    overflow: auto;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 0;
+    width: 90%;
+    max-width: 900px;
+    border-radius: 12px;
+    position: relative;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close-modal {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    color: #94a3b8;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+}
+.close-modal:hover { color: var(--dark); }
+
+.modal-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 768px) {
+    .modal-body { grid-template-columns: 1fr; }
+}
+
+.modal-img-container {
+    height: 100%;
+    min-height: 400px;
+    background: #f1f5f9;
+}
+.modal-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+.modal-info {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.modal-description {
+    color: var(--slate);
+    margin: 15px 0 25px;
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+.quantity-selector {
+    margin-bottom: 25px;
+}
+.qty-inputs {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+}
+.qty-inputs button {
+    width: 35px; height: 35px;
+    border: 1px solid #e2e8f0;
+    background: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.qty-inputs input {
+    width: 50px;
+    text-align: center;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.modal-specs {
+    margin-top: 30px;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 20px;
+}
+.modal-specs li {
+    font-size: 0.85rem;
+    color: var(--slate);
+    margin-bottom: 8px;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Inversores | Eco-Stock</title>
+    <link rel="stylesheet" href="style-global.css">
+    <link rel="stylesheet" href="style-inversores.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">ECO<span>STOCK</span></a>
+            <ul class="nav-links">
+                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a href="beneficios.html">Soluciones</a></li>
+                <li><a href="inversores.html" class="active">Inversores</a></li>
+            </ul>
+            <a href="carrito.html" class="cart-btn-nav">
+                🛒 <span class="cart-badge" id="cart-count">0</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="investor-bg">
+        <div class="container">
+            <header class="investor-hero">
+                <h1>Rentabilidad Sostenible <br><span style="color:var(--primary)">Escalable.</span></h1>
+                <p>Datos financieros Q4 2025 y proyección de crecimiento.</p>
+            </header>
+
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <span class="kpi-val">+240%</span>
+                    <span class="kpi-label">YoY Growth</span>
+                </div>
+                <div class="kpi-card">
+                    <span class="kpi-val">12M€</span>
+                    <span class="kpi-label">GMV Transaccionado</span>
+                </div>
+                <div class="kpi-card">
+                    <span class="kpi-val">1.2K</span>
+                    <span class="kpi-label">Clientes Activos</span>
+                </div>
+                <div class="kpi-card">
+                    <span class="kpi-val">A</span>
+                    <span class="kpi-label">Rating ESG</span>
+                </div>
+            </div>
+
+           <section class="financial-block">
+                <div>
+                    <h2 style="font-size: 2rem; margin-bottom: 20px;">Modelo de Crecimiento</h2>
+                    <p style="color: var(--slate); margin-bottom: 20px;">
+                        Hemos superado la fase de validación (Seed) y estamos ejecutando nuestro plan de escalado Series A, multiplicando el GMV x2.5 anualmente.
+                    </p>
+                    <a href="deck-request.html" class="btn btn-primary">Solicitar Deck Financiero</a>
+                </div>
+                <div style="width: 100%; height: 350px;">
+                    <canvas id="growthChart"></canvas>
+                </div>
+            </section>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

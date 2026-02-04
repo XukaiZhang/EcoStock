@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Materiales | Eco-Stock</title>
+    <link rel="stylesheet" href="style-global.css">
+    <link rel="stylesheet" href="style-catalogo.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">ECO<span>STOCK</span></a>
+            <ul class="nav-links">
+                <li><a href="catalogo.html" class="active">Catálogo</a></li>
+                <li><a href="beneficios.html">Soluciones</a></li>
+                <li><a href="inversores.html">Inversores</a></li>
+            </ul>
+            <a href="carrito.html" class="cart-btn-nav">
+                🛒 <span class="cart-badge" id="cart-count">0</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="container catalog-layout">
+        <aside class="filters">
+            <div class="filter-group">
+                <h3>Categoría</h3>
+                <label class="filter-option">
+                    <input type="checkbox" value="Estructural" onchange="filterProducts()"> Estructurales
+                </label>
+                <label class="filter-option">
+                    <input type="checkbox" value="Acabados" onchange="filterProducts()"> Acabados
+                </label>
+                <label class="filter-option">
+                    <input type="checkbox" value="Fontanería" onchange="filterProducts()"> Fontanería
+                </label>
+                <label class="filter-option">
+                    <input type="checkbox" value="Aislamiento" onchange="filterProducts()"> Aislamiento
+                </label>
+                <label class="filter-option">
+                    <input type="checkbox" value="Maquinaria" onchange="filterProducts()"> Maquinaria
+                </label>
+            </div>
+            <div class="filter-group">
+                <h3>Estado</h3>
+                <label class="filter-option"><input type="checkbox" checked disabled> Nuevo (Excedente)</label>
+                <label class="filter-option"><input type="checkbox" disabled> Reacondicionado</label>
+            </div>
+        </aside>
+
+        <main>
+            <div class="products-header">
+                <h1>Stock Disponible</h1>
+                <span style="color: var(--slate);">Verificados y listos para envío</span>
+            </div>
+            
+            <div id="catalogGrid" class="products-grid">
+                </div>
+        </main>
+    </div>
+
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <div class="modal-img-container">
+                    <img id="modalImg" src="" alt="">
+                </div>
+                <div class="modal-info">
+                    <span id="modalCat" class="category">Categoría</span>
+                    <h2 id="modalTitle">Nombre del Producto</h2>
+                    <p id="modalDesc" class="modal-description">Descripción...</p>
+                    
+                    <div class="modal-price-box">
+                        <span id="modalOldPrice" style="text-decoration: line-through; color: #94a3b8;"></span>
+                        <span id="modalPrice" class="price" style="font-size: 2rem;"></span>
+                    </div>
+
+                    <div class="quantity-selector">
+                        <label>Cantidad:</label>
+                        <div class="qty-inputs">
+                            <button onclick="changeQty(-1)">-</button>
+                            <input type="number" id="qtyInput" value="1" min="1" readonly>
+                            <button onclick="changeQty(1)">+</button>
+                        </div>
+                    </div>
+
+                    <div class="modal-actions">
+                        <button class="btn btn-primary" style="width: 100%;" onclick="addToCartFromModal()">
+                            Añadir al Pedido
+                        </button>
+                    </div>
+                    
+                    <ul class="modal-specs">
+                        <li>✅ Certificado de Origen</li>
+                        <li>✅ Inspeccionado por Eco-Stock</li>
+                        <li>🚚 Envío en 24/48h</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

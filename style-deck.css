@@ -1,0 +1,68 @@
+.deck-container {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    min-height: calc(100vh - 80px); /* Resta el navbar */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.deck-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 1100px;
+    width: 100%;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 850px) {
+    .deck-grid { grid-template-columns: 1fr; }
+}
+
+.deck-info {
+    padding: 60px;
+    background: var(--dark);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.deck-info h1 { font-size: 2.5rem; line-height: 1.1; margin-bottom: 20px; letter-spacing: -1px; }
+.subtitle { color: #94a3b8; font-size: 1.1rem; margin-bottom: 40px; line-height: 1.6; }
+
+.info-item { display: flex; gap: 15px; margin-bottom: 30px; }
+.check { 
+    background: rgba(255, 90, 31, 0.2); color: var(--primary); 
+    width: 30px; height: 30px; border-radius: 50%; 
+    display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;
+}
+.info-item h4 { margin-bottom: 5px; color: white; }
+.info-item p { font-size: 0.9rem; color: #cbd5e1; }
+
+.confidential-badge {
+    margin-top: auto;
+    background: rgba(255,255,255,0.1);
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    text-align: center;
+    border: 1px dashed #475569;
+}
+
+.deck-form-box { padding: 60px; }
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 8px; color: var(--dark); }
+.form-group input, .form-group select {
+    width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-family: inherit;
+    transition: 0.3s;
+}
+.form-group input:focus, .form-group select:focus {
+    border-color: var(--primary); outline: none; box-shadow: 0 0 0 3px rgba(255, 90, 31, 0.1);
+}
+
+.checkbox-label { display: flex; gap: 10px; align-items: center; font-weight: 400; font-size: 0.85rem; cursor: pointer; }
+.checkbox-label input { width: auto; margin: 0; }

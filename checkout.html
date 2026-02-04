@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Finalizar Compra | Eco-Stock</title>
+    <link rel="stylesheet" href="style-global.css">
+    <link rel="stylesheet" href="style-checkout.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">ECO<span>STOCK</span></a>
+            <div style="font-size: 0.9rem; color: var(--slate); font-weight: 500;">
+                Pago Seguro SSL 🔒
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" style="padding: 60px 20px;">
+        <form class="checkout-grid" onsubmit="finalizeOrder(event)">
+            
+            <div class="checkout-form">
+                <h2>Dirección de Envío</h2>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Nombre</label>
+                        <input type="text" placeholder="Ej: Juan Pérez" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Empresa (Opcional)</label>
+                        <input type="text" placeholder="Ej: Construcciones S.L.">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Dirección</label>
+                    <input type="text" placeholder="Calle, Nave, Polígono..." required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Ciudad</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Código Postal</label>
+                        <input type="text" required>
+                    </div>
+                </div>
+
+                <h2 style="margin-top: 40px;">Método de Pago</h2>
+                <div class="payment-card-box">
+                    <div class="form-group">
+                        <label>Número de Tarjeta</label>
+                        <div class="input-icon">
+                            <input type="text" placeholder="0000 0000 0000 0000" maxlength="19" required>
+                            <span>💳</span>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Caducidad</label>
+                            <input type="text" placeholder="MM/AA" maxlength="5" required>
+                        </div>
+                        <div class="form-group">
+                            <label>CVV</label>
+                            <input type="text" placeholder="123" maxlength="3" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="order-summary-box">
+                <h3>Tu Pedido</h3>
+                <div id="checkout-items" class="mini-list">
+                    <p style="font-size:0.9rem; color: #64748B; margin-bottom: 20px;">
+                        Revisa los artículos en la pantalla anterior.
+                    </p>
+                </div>
+                
+                <div class="summary-row total">
+                    <span>Total a Pagar</span>
+                    <span id="total-price-checkout" style="color: var(--primary);">Calculando...</span>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 20px; padding: 15px;">
+                    Pagar Ahora
+                </button>
+                <p style="font-size: 0.75rem; color: #94a3b8; text-align: center; margin-top: 15px;">
+                    Tus datos están encriptados y seguros.
+                </p>
+            </div>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Script inline rápido para actualizar el total en esta página
+        document.addEventListener('DOMContentLoaded', () => {
+            let cart = JSON.parse(localStorage.getItem('ecoCart')) || [];
+            const total = cart.reduce((acc, p) => acc + p.precio, 0) * 1.21;
+            document.getElementById('total-price-checkout').innerText = total.toFixed(2) + "€";
+        });
+    </script>
+</body>
+</html>
