@@ -90,7 +90,6 @@ window.filterProducts = function() {
         renderGrid(filtered);
     }
 };
-
 /* ================= RENDERIZADO CATÁLOGO ================= */
 function renderGrid(listaProductos) {
     const grid = document.getElementById('catalogGrid');
@@ -111,19 +110,20 @@ function renderGrid(listaProductos) {
         <div class="product-card" onclick="openModal(${p.id})">
             <div class="card-img-wrapper">
                 <span class="badge-discount">-${Math.round((1 - p.precio/p.originalPrice)*100)}%</span>
-                <img src="${p.img}" class="card-img" alt="${p.nombre}" loading="eager" onerror="this.src='https://placehold.co/600x400?text=Sin+Imagen'">
+                <img src="${p.img}" class="card-img" alt="${p.nombre}" loading="lazy" onerror="this.src='https://placehold.co/600x400?text=Sin+Imagen'">
             </div>
             <div class="card-content">
                 <span class="category">${p.category}</span>
                 <h3 class="card-title">${p.nombre}</h3>
+                
                 <div class="card-footer" onclick="event.stopPropagation()">
-                    <div style="display:flex; justify-content:space-between; align-items:end">
-                        <div>
-                            <span style="text-decoration: line-through; color: #94a3b8; font-size: 0.9rem;">${p.originalPrice}€</span>
-                            <div class="price" style="margin-bottom:0">${p.precio}€</div>
-                        </div>
-                        <button class="btn-icon" onclick="addToCart(${p.id}, 1)">+</button>
+                    <div class="price-block">
+                        <span class="old-price">${p.originalPrice}€</span>
+                        <span class="current-price">${p.precio}€</span>
                     </div>
+                    <button class="btn-icon" onclick="addToCart(${p.id}, 1)" title="Añadir al carrito">
+                        +
+                    </button>
                 </div>
             </div>
         </div>

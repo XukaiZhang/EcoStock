@@ -103,3 +103,54 @@ ul { list-style: none; }
 .btn-primary:hover { background: var(--primary-hover); }
 .btn-outline { border: 2px solid var(--dark); color: var(--dark); background: transparent; }
 .btn-outline:hover { background: var(--dark); color: white; }
+
+/* ================= ANIMACIONES DE BOTONES (HOVER) ================= */
+
+/* Base de la animación para todos los botones */
+.btn {
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Suavidad tipo Apple */
+    position: relative;
+    z-index: 1;
+}
+
+/* Efecto general al pasar el ratón (Levantar) */
+.btn:hover {
+    transform: translateY(-4px) scale(1.02); /* Se eleva y crece un pelín */
+}
+
+.btn:active {
+    transform: translateY(-1px) scale(0.98); /* Efecto de "click" al pulsar */
+}
+
+/* 1. Estilo para Botones Naranjas (Ver Stock / Solicitar Deck) */
+.btn-primary:hover {
+    box-shadow: 0 20px 35px -5px rgba(255, 90, 31, 0.5); /* Sombra naranja brillante */
+    filter: brightness(1.1); /* Se ilumina ligeramente */
+}
+
+/* 2. Estilo para el botón "Cómo funciona" (Transparente/Glass) */
+.btn-glass {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-glass:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 20px 35px -5px rgba(0, 0, 0, 0.3);
+}
+
+/* 3. Estilo para el botón "Ver Materiales" en Beneficios (Blanco) */
+.btn-white {
+    background: white;
+    color: var(--primary);
+    border: 1px solid transparent;
+}
+
+.btn-white:hover {
+    background: var(--dark); /* Cambia a oscuro */
+    color: white;
+    box-shadow: 0 20px 35px -5px rgba(15, 23, 42, 0.4);
+}
