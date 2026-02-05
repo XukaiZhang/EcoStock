@@ -53,7 +53,7 @@ const productos = [
         precio: 45,         // Descuento ~70% (Material voluminoso, urge venta)
         category: "Fontanería", 
         description: "Lote de 10 tubos de PVC gris para evacuación de aguas. Diámetro 110mm, longitud 3m. Unión por encolado. Resistencia SN4. Perfecto estado.",
-        img: "https://hogaryreformas.com/wp-content/uploads/2024/10/tubo_mm_m_pvc_10106803_picture.jpeg" 
+        img: "https://media.adeo.com/media/4402708/media.jpg" 
     },
     { 
         id: 7, 
